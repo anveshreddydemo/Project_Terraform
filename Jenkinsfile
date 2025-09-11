@@ -8,6 +8,13 @@ pipeline {
             }
         }
 
+        stage('checking the terraform version') {
+            steps {
+                sh 'terraform -v'
+            }
+        }
+
+
         stage('init') {
             steps {
                 sh 'terraform init'

@@ -4,6 +4,7 @@ pipeline {
     parameters {
         choice(name: 'CHOICE', choices: ['apply', 'destroy'], description: 'Pick something')
     }
+    
     stages {
             
         stage('checking the terraform version') {
@@ -47,6 +48,7 @@ pipeline {
                 sh "terraform ${params.CHOICE} --auto-approve"
             }
         }
+    }
     post {
     always {
         cleanWs()

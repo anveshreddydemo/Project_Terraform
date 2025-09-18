@@ -6,60 +6,7 @@ pipeline {
     }
 
     stages {
-
-        stage('aws version') {
-            steps {
-                sh '''
-                aws --version
-                aws sts get-caller-identity '''
-            }
-        } 
-
-        stage('checking the instances') {
-            steps {
-                sh 'aws ec2 describe-instances'
-            }
-        } 
-        
-        stage('Example') {
-            steps {
-                echo "You chose: ${params.CHOICE}"
-            }
-        }
-
-
-        
-        stage('checking the terraform version') {
-            steps {
-                sh 'terraform -v'
-            }
-        }
-
-        stage('init') {
-            steps {
-                sh 'terraform init'
-            }
-        }
-
-       stage('validate') {
-            steps {
-                sh 'terraform validate'
-            }
-        }
-
-        stage('spaces') {
-            steps {
-                sh 'terraform fmt'
-            }
-        }
-
-        stage('plan') {
-            steps {
-                sh 'terraform plan'
-            }
-        }
-        
-        stage('apply') {
+        stage('destroy') {
             steps {
                 sh "terraform ${params.CHOICE} --auto-approve"
             }

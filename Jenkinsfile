@@ -49,10 +49,5 @@ pipeline {
             }
         }
         
-        stage('post message') {
-            steps {
-                echo "Infra created successfully"
-            }
-        }
     }
 }

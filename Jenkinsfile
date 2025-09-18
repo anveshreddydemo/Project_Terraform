@@ -6,6 +6,13 @@ pipeline {
     }
 
     stages {
+
+        stage('init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+        
         stage('destroy') {
             steps {
                 sh "terraform ${params.CHOICE} --auto-approve"

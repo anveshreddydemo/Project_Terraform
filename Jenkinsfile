@@ -19,7 +19,7 @@ pipeline {
             }
         }
 
-        stage('validate') {
+        stage('validation for raghu') {
             steps {
                 sh 'terraform validate'
             }

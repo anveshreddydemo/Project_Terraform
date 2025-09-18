@@ -14,12 +14,20 @@ pipeline {
                 aws sts get-caller-identity '''
             }
         } 
+
+        stage('checking the instances') {
+            steps {
+                sh 'aws ec2 describe-instances'
+            }
+        } 
         
         stage('Example') {
             steps {
                 echo "You chose: ${params.CHOICE}"
             }
         }
+
+
         
         stage('checking the terraform version') {
             steps {

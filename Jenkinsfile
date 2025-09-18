@@ -39,13 +39,13 @@ pipeline {
 
         stage('apply') {
             steps {
-                sh 'terraform ${params.CHOICE} --auto-approve '
+                sh 'terraform ${params.CHOICE} --auto-approve'
             }
         }
 
         stage('destroy') {
             steps {
-                sh 'terraform ${params.CHOICE} --auto-approve '
+                sh 'terraform ${params.CHOICE} --auto-approve'
             }
         }
         

@@ -46,6 +46,13 @@ pipeline {
                 sh 'terraform validate'
             }
         }
+
+        stage('spaces') {
+            steps {
+                sh 'terraform fmt'
+            }
+        }
+
     }
     post {
     always {

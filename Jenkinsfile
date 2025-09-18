@@ -6,6 +6,15 @@ pipeline {
     }
 
     stages {
+
+        stage('aws version') {
+            steps {
+                sh '''
+                aws --version
+                aws sts get-caller-identity '''
+            }
+        } 
+        
         stage('Example') {
             steps {
                 echo "You chose: ${params.CHOICE}"

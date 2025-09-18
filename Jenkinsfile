@@ -40,5 +40,20 @@ pipeline {
                 sh 'terraform init'
             }
         }
+
+        stage('init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+
     }
+    post {
+    always {
+        cleanWs()
+    }
+}
+
+
+        
 }

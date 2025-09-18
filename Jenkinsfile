@@ -41,12 +41,11 @@ pipeline {
             }
         }
 
-        stage('init') {
+       stage('validate') {
             steps {
-                sh 'terraform init'
+                sh 'terraform validate'
             }
         }
-
     }
     post {
     always {
